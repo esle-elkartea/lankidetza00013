@@ -1,0 +1,30 @@
+
+	
+   #nav-subcapitulos,#nav-maquinarias,#nav-alarmas, #nav-trabajadores,#nav-operarios{
+      background:url("../img/left_both_7.gif") no-repeat left top;
+      }
+     #titulo_Subcapitulos, #nav-subcapitulos a,#titulo_Maquinarias,#nav-maquinarias a,#nav-alarmas a,#titulo_Trabajadores, #nav-trabajadores a,#titulo_Operarios, #nav-operarios a{
+      background:url("../img/right_both_7.gif") no-repeat right top;
+      }
+
+    #nav-obras,#nav-clientes,#nav-uejecuciones {
+      background:url("../img/left_both_1.gif") no-repeat left top;
+      }
+
+    #titulo_Obras, #nav-obras a ,#titulo_Clientes,#nav-clientes a,#titulo_Uejecuciones, #nav-uejecuciones a {
+      background:url("../img/right_both_1.gif") no-repeat right top;
+      }        
+      
+ 
+    #nav-partes, #nav-incidencias, #nav-tipoincidencias {
+      background:url("../img/left_both_10.gif") no-repeat left top;
+      }
+
+    #titulo_Partes, #nav-partes a, #titulo_Incidencias, #nav-incidencias a, #titulo_Tipoincidencias, #nav-tipoincidencias a {
+      background:url("../img/right_both_10.gif") no-repeat right top;
+      }                        
+ 
+      
+      #alarmas span {display:block;}
+      #alarmas div {display:block;float:left;width:100%;padding-left:22px;background: url(../img/inicio.gif) 0 0 no-repeat;font-size:16px;font-weight:bold;}
+      .inicio li{display:table-cell;float:left;list-style:none;padding-left:22px;background: url(../img/inicio.gif) 0 0 no-repeat;}	

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+   <!-- General description of your web application -->
+   <display-name>aveobras</display-name>
+   <description>
+    	descripcion del proyecto app
+   </description>
+
+	<filter>
+        <filter-name>router</filter-name>
+        <filter-class>net.idtoki.aveobras.controller.AppRouter</filter-class>
+        <init-param>
+	      <param-name>rules</param-name>
+	      <param-value>/WEB-INF/config/rules</param-value>
+	   </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>router</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    
+   <!--listener para arrancar el motor del torque clase que implementa el listener para el deploy -->
+
+    <listener>
+     <listener-class>net.idtoki.aveobras.app.event.OnStartUp</listener-class>
+    </listener>    
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.AppLoginController</servlet-class>
+    </servlet>
+    
+<servlet>
+        <servlet-name>Provincias</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.ProvinciasController</servlet-class>
+</servlet>    
+
+<servlet>
+        <servlet-name>Localidades</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.LocalidadesController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Capitulos</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.CapitulosController</servlet-class>
+</servlet> 
+
+<servlet>
+        <servlet-name>Categorias</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.CategoriasController</servlet-class>
+</servlet> 
+
+<servlet>
+        <servlet-name>Tipoincidencias</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.TipoincidenciasController</servlet-class>
+</servlet>  
+
+<servlet>
+        <servlet-name>Subcapitulos</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.SubcapitulosController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Uejecuciones</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.UejecucionesController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Clientes</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.ClientesController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Obras</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.ObrasController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Operarios</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.OperariosController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Maquinarias</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.MaquinariasController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Partes</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.PartesController</servlet-class>
+</servlet>
+
+<servlet>
+        <servlet-name>Incidencias</servlet-name>
+        <servlet-class>net.idtoki.aveobras.controller.IncidenciasController</servlet-class>
+</servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login/*</url-pattern>
+    </servlet-mapping>
+    
+<servlet-mapping>
+        <servlet-name>Provincias</servlet-name>
+        <url-pattern>/Provincias/*</url-pattern>
+</servlet-mapping>   
+
+<servlet-mapping>
+        <servlet-name>Localidades</servlet-name>
+        <url-pattern>/Localidades/*</url-pattern>
+</servlet-mapping> 
+
+<servlet-mapping>
+        <servlet-name>Capitulos</servlet-name>
+        <url-pattern>/Capitulos/*</url-pattern>
+</servlet-mapping> 
+
+<servlet-mapping>
+        <servlet-name>Categorias</servlet-name>
+        <url-pattern>/Categorias/*</url-pattern>
+</servlet-mapping> 
+
+<servlet-mapping>
+        <servlet-name>Tipoincidencias</servlet-name>
+        <url-pattern>/Tipoincidencias/*</url-pattern>
+</servlet-mapping> 
+
+<servlet-mapping>
+        <servlet-name>Subcapitulos</servlet-name>
+        <url-pattern>/Subcapitulos/*</url-pattern>
+</servlet-mapping> 
+
+<servlet-mapping>
+        <servlet-name>Uejecuciones</servlet-name>
+        <url-pattern>/Uejecuciones/*</url-pattern>
+</servlet-mapping> 
+
+<servlet-mapping>
+        <servlet-name>Clientes</servlet-name>
+        <url-pattern>/Clientes/*</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+        <servlet-name>Obras</servlet-name>
+        <url-pattern>/Obras/*</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+        <servlet-name>Operarios</servlet-name>
+        <url-pattern>/Operarios/*</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+        <servlet-name>Maquinarias</servlet-name>
+        <url-pattern>/Maquinarias/*</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+        <servlet-name>Partes</servlet-name>
+        <url-pattern>/Partes/*</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+        <servlet-name>Incidencias</servlet-name>
+        <url-pattern>/Incidencias/*</url-pattern>
+</servlet-mapping>
+
+</web-app>

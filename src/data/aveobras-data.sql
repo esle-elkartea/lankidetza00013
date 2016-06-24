@@ -1,0 +1,6 @@
+\copy PROVINCIAS FROM 'provincias.txt' WITH DELIMITER ';'
+\copy LOCALIDADES FROM 'localidadesSort.txt' WITH DELIMITER ';'
+\copy CATEGORIAS FROM 'categorias.txt' WITH DELIMITER ';'
+\copy CAPITULOS FROM 'capitulos.txt' WITH DELIMITER ';'
+\copy SUBCAPITULOS FROM 'subcapitulos.txt' WITH DELIMITER ';'
+\copy TIPOINCIDENCIAS FROM 'tipoincidencias.txt' WITH DELIMITER ';'

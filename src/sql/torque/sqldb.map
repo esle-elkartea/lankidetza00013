@@ -1,0 +1,3 @@
+#Sqlfile -> Database map
+#Wed Oct 25 17:01:01 CEST 2006
+app-schema.sql=AVEOBRAS-DB

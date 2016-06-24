@@ -1,0 +1,553 @@
+
+targetdatabase = postgresql
+dbprops.idMethod = sequence
+# Taken from java.sql.Types in the IBM 1.3 JDK
+# JDBC to PostgreSQL mappings.
+#
+# See http://www.postgresql.org/idocs/index.php?datatype.html for more
+# information on PostgreSQL data types.
+
+BIT = boolean
+TINYINT = int2
+SMALLINT = int2
+INTEGER = integer
+BIGINT = int8
+FLOAT = float
+REAL = float
+BOOLEANCHAR = char
+BOOLEANINT = int2
+
+DOUBLE = double precision
+# numeric(precision, scale) / decimal(precision, scale)
+NUMERIC = numeric
+DECIMAL = decimal
+CHAR = char
+VARCHAR = varchar
+LONGVARCHAR = text
+DATE = date
+TIME = time
+TIMESTAMP = timestamp
+BINARY = bytea
+VARBINARY = bytea
+LONGVARBINARY = bytea
+NULL =
+OTHER =
+JAVA_OBJECT =
+DISTINCT =
+STRUCT =
+ARRAY =
+BLOB =
+CLOB = text
+REF =
+
+AUTOINCREMENT = serial
+NOTNULL = NOT NULL
+
+primaryKeyInsideTableDirective = true
+indexInsideTableDirective = false
+
+removeNotNullWithAutoIncrement = true
+
+suppressDefaults = false
+idMethod=sequence
+
+
+  
+        
+    
+
+    net.idtoki.aveobras.model
+    net.idtoki.aveobras.model
+    net.idtoki.aveobras.model.map
+    net.idtoki.aveobras.group
+    net.idtoki.aveobras.helper
+    net.idtoki.aveobras.manager
+    net.idtoki.aveobras.controller
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\model\
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\model\map\
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\model\
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\group\
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\helper\
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\manager\
+
+        Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\controller\
+
+          
+       
+
+	
+        capitulos
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        categorias
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        clientes
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        incidencias
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        localidades
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        maquinarias
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        obras
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        operarios
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        partes
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        provincias
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        subcapitulos
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        tipoincidencias
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                        
+       
+
+	
+        uejecuciones
+        
+	        
+
+                          
+	
+	
+	        
+
+                          
+	
+                
+
+                  
+        
+        
+                  
+        
+                
+                
+	
+                
+
+                
+	
+	
+                
+
+                
+	
+        
+                    
+
+
+  
+  
+  
+
+
+net.idtoki.aveobras.app.config
+net.idtoki.aveobras.app.event
+    Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\app\config\
+    Failed to create dir or dir already exists: D:\aplic\aveobras-app\src/net\idtoki\aveobras\app\event\
+
+
+
+
+
+

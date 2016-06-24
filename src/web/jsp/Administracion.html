@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+<title>Ave-HomePage</title>
+<link rel="stylesheet" type="text/css" media="all" href="/ave/css/calendar.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/ave/css/administracion.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/ave/css/menu.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/ave/css/validation.css"/>
+<script src="/ave/js/utils/prototype.js" type="text/javascript"></script>
+<script src="/ave/js/utils/scriptaculous.js" type="text/javascript"></script>
+<script src='/ave/js/utils/rico.js' type="text/javascript"></script>
+<script src='/ave/js/utils/zk_widgets.js' type="text/javascript"></script>
+<script src='/ave/js/utils/zk_filtros.js' type="text/javascript"></script>
+<script src='/ave/js/utils/zk_estructura.js' type="text/javascript"></script>
+<script src='/ave/js/utils/zk_transformadores.js' type="text/javascript"></script>
+<script src='/ave/js/utils/zk_utils.js' type="text/javascript"></script>
+<script type="text/javascript" src="/ave/js/utils/zk_editors.js"></script>
+<script type="text/javascript" src="/ave/js/utils/calendar.js"></script>
+<script type="text/javascript" src="/ave/js/utils/calendar-setup.js"></script>							
+<script type="text/javascript" src="/ave/js/utils/calendar-lang/calendar-es.js"></script>
+<script src="/ave/js/administracion.js" type="text/javascript" CHARSET="ISO-8859-1"></script>
+<script src="/ave/js/alarmas.js" type="text/javascript"></script>
+<script src="/ave/js/utils/validation.js" type="text/javascript" CHARSET="ISO-8859-1"></script>
+<script src="/ave/js/utils/validation_lang_es.js" type="text/javascript" CHARSET="ISO-8859-1"></script>
+
+<script language="javascript" type="">
+
+function verAlarmas()
+{
+ var strAlarmaLinks = 'Obras en ejecución;Unidades de Ejecución Activas';
+ var strAlarmaFiltro ="2;1";
+ var strAlarmaFunctions ="verObras();verUnidadesEjecucion()";
+ cargarAlarmas(strAlarmaLinks, strAlarmaFiltro, strAlarmaFunctions);
+ }
+
+function verObras()
+{
+ $('iModoVisualizacion').value = '0';
+ $('viewedRows').value = '20';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Obras';    
+ $('strFunction').value = 'verObras()';
+ $('strTituloLista').value = 'Lista de Obras';
+ $('strTituloForm').value = 'Obra';  
+ $('tableContentServlet').value = '/ave/Obras/ObrasTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Obras/AddObrasServlet';
+ $('strLinkDeleteServlet').value = '/ave/Obras/DeleteObrasServlet'; 
+ $('strLinkDuplicarServlet').value = '/ave/Obras/DuplicarObrasServlet'; 
+ $('strLinkEditServlet').value = '/ave/Obras/ObrasElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Obras/GetObrasDetallePdfServlet';  
+ $('strLinkInformePdfServlet').value = '';  
+ $('strLinkListaPdfServlet').value = '/ave/Obras/ObrasTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'obras.IDOBRA='; 
+ $('strCampos').value = 'obras.REFERENCIA;obras.NOMBRE;obras.NUMEROCONTRATO;obras.IDCLIENTE;obras.IDLOCALIDAD;obras.FECHAALTA;FREE_EDITAR;FREE_DUPLICAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;NORMAL;NORMAL;AUTO;AUTO;DATE;FREE_EDITAR;FREE_DUPLICAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Nombre;Nº Contrato;Cliente;Localidad;Fecha Alta;Editar;Duplicar;Borrar';
+ $('strCamposWidth').value = '11%;14%;14%;18%;17%;10%;5%;5%;5%';
+ $('strLinksUlContentServlet').value = ';;;/ave/Clientes/ClientesUlContentServlet;/ave/Localidades/LocalidadesUlContentServlet;;;;'; 
+ $('strMetodosController').value = 'ReferenciaObrasParsed;NombreObrasParsed;NumerocontratoObrasParsed;IdclienteObrasParsed;IdlocalidadObrasParsed;FechaaltaObrasParsed;EditObras;DuplicarObras;DeleteObras';
+ $('strLinksUpdateServlet').value = '/ave/Obras/UpdateReferenciaServlet;/ave/Obras/UpdateNombreServlet;/ave/Obras/UpdateNumerocontratoServlet;/ave/Obras/UpdateIdclienteServlet;/ave/Obras/UpdateIdlocalidadServlet;/ave/Obras/UpdateFechaaltaServlet;editar;duplicar;borrar'; 
+ $('strEsOrdenable').value="1;1;1;1;1;1;0;0;0"; 
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;click;click;click';
+ $('strValidarColumnasGrid').value = ';requerido-es;requerido-es;requerido-es;requerido-es;requerido-es;;;';  
+ $('strFormCampos').value = 'obras.IDOBRA;obras.NOMBRE;obras.NUMEROCONTRATO;obras.IDCLIENTE;obras.IDLOCALIDAD;obras.FECHAALTA;obras.FECHACOMIENZO;obras.FECHAFIN;obras.CALLE;obras.CP;obras.REFERENCIA;obras.JORNADAS;obras.OBSERVACIONES;'; 
+ $('strFormCamposOblig').value = '1;1;1;1;1;1;;;;;;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;NORMAL;NORMAL;AUTO;AUTO;DATE;DATE;DATE;NORMAL;NORMAL;NORMAL;NORMAL;LECTURA;AREA'; 
+ $('strFormCamposDec').value = 'IDOBRA;Nombre;Número Contrato;Cliente;Localidad;Fecha Alta;Fecha Comienzo;Fecha Fin;Calle;CP;Referencia;Jornadas;Importe;Observaciones'; 
+ $('strFormCamposWidth').value = ';350px;350px;400px;350px;350px;350px;350px;350px;350px;350px;350px;350px;700px';  
+ $('strFormLinksUlContentServlet').value = ';;;/ave/Clientes/ClientesUlContentServlet;/ave/Localidades/LocalidadesUlContentServlet;;;;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';;;/ave/Obras/ObrasClienteServlet;/ave/Obras/ObrasLocalidadServlet;;;;;;;;;';
+ $('strFormMetodosController').value = 'Idobra;NombreObrasParsed;NumerocontratoObrasParsed;IdclienteObrasParsed;IdlocalidadObrasParsed;FechaaltaObrasParsed;FechacomienzoObrasParsed;FechafinObrasParsed;CalleObrasParsed;CpObrasParsed;ReferenciaObrasParsed;JornadasObrasParsed;ImporteObrasParsed;ObservacionesObrasParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;requerido-es;requerido-es;requerido-es;requerido-es validate-date-es;;;;;;;;';  
+ $('strFormCabeceraLinks').value = 'Unidades de Ejecución';
+ $('strFormCabeceraFunctions').value = 'verUnidadesEjecucion()';  
+ $('strCabeceraLinks').value = 'Clientes';
+ $('strCabeceraFunctions').value = 'verClientes()';
+ $('strFiltroLinks').value = 'Todas;Sin iniciar;Iniciadas;Finalizadas';
+ $('strFiltroFunctions').value = '0;1;2;3'; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";   
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ }
+
+
+function verClientes()
+{
+ $('iModoVisualizacion').value = '0';
+ $('viewedRows').value = '20';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Clientes';    
+ $('strFunction').value = 'verClientes()';
+ $('strTituloLista').value = 'Lista de Clientes';
+ $('strTituloForm').value = 'Cliente';  
+ $('tableContentServlet').value = '/ave/Clientes/ClientesTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Clientes/AddClientesServlet';
+ $('strLinkDeleteServlet').value = '/ave/Clientes/DeleteClientesServlet'; 
+ $('strLinkDuplicarServlet').value = ''; 
+ $('strLinkEditServlet').value = '/ave/Clientes/ClientesElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Clientes/GetClientesDetallePdfServlet';  
+ $('strLinkInformePdfServlet').value = '';  
+ $('strLinkListaPdfServlet').value = '/ave/Clientes/ClientesTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'clientes.IDCLIENTE='; 
+ $('strCampos').value = 'clientes.CIF;clientes.REFERENCIA;clientes.NOMBRE;clientes.RAZONSOCIAL;clientes.CONTACTO;clientes.TELEFONO;FREE_EDITAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;FREE_EDITAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'CIF;Referencia;Nombre;Razón Social;Contacto;Teléfono;Editar;Borrar';
+ $('strCamposWidth').value = '10%;11%;19%;20%;20%;10%;5%;5%';
+ $('strLinksUlContentServlet').value = ';;;;;'; 
+ $('strMetodosController').value = 'CifClientesParsed;ReferenciaClientesParsed;NombreClientesParsed;RazonsocialClientesParsed;ContactoClientesParsed;TelefonoClientesParsed;EditClientes;DeleteClientes';
+ $('strLinksUpdateServlet').value = '/ave/Clientes/UpdateCifServlet;/ave/Clientes/UpdateReferenciaServlet;/ave/Clientes/UpdateNombreServlet;/ave/Clientes/UpdateRazonsocialServlet;/ave/Clientes/UpdateContactoServlet;/ave/Clientes/UpdateTelefonoServlet;editar;borrar'; 
+ $('strEsOrdenable').value="1;1;1;1;1;1;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;click;click';
+ $('strValidarColumnasGrid').value = 'requerido-es;;requerido-es;;;;;';  
+ $('strFormCampos').value = 'clientes.IDCLIENTE;clientes.NOMBRE;clientes.IDLOCALIDAD;clientes.FECHAALTA;clientes.FECHABAJA;clientes.CONTACTO;clientes.CIF;clientes.REFERENCIA;clientes.RAZONSOCIAL;clientes.DIRECCION;clientes.CP;clientes.TELEFONO;clientes.FAX;clientes.EMAIL;clientes.WWW;clientes.OBSERVACIONES'; 
+ $('strFormCamposOblig').value = '1;1;1;1;;;1;;;;;;;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;NORMAL;AUTO;DATE;DATE;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;AREA'; 
+ $('strFormCamposDec').value = 'IDCLIENTE;Nombre;Localidad;Fecha Alta;Fecha Baja;Contacto;CIF;Referencia;Razón Social;Dirección;CP;Teléfono;Fax;Email;WWW;Observaciones'; 
+ $('strFormCamposWidth').value = ';350px;400px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;700px';  
+ $('strFormLinksUlContentServlet').value = ';;/ave/Localidades/LocalidadesUlContentServlet;;;;;;;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';;/ave/Clientes/ClientesLocalidadServlet;;;;;;;;;;;;';
+ $('strFormMetodosController').value = 'Idcliente;NombreClientesParsed;IdlocalidadClientesParsed;FechaaltaClientesParsed;FechabajaClientesParsed;ContactoClientesParsed;CifClientesParsed;ReferenciaClientesParsed;RazonsocialClientesParsed;DireccionClientesParsed;CpClientesParsed;TelefonoClientesParsed;FaxClientesParsed;EmailClientesParsed;WwwClientesParsed;ObservacionesClientesParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;requerido-es;requerido-es validate-date-es;;;requerido-es;;;;;;;;;'; 
+ $('strFormCabeceraLinks').value = 'Obras';
+ $('strFormCabeceraFunctions').value = 'verObras()';  
+ $('strCabeceraLinks').value = '';
+ $('strCabeceraFunctions').value = '';  
+ $('strFiltroLinks').value = '';
+ $('strFiltroFunctions').value = ''; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";    
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ }
+ 
+function verSubcapitulos()
+{
+ $('iModoVisualizacion').value = '1';
+ $('viewedRows').value = '7';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Subcapitulos';   
+ $('strFunction').value = 'verSubcapitulos()';
+ $('strTituloLista').value = 'Lista de Subcapitulos';
+ $('strTituloForm').value = 'Subcapitulo';  
+ $('tableContentServlet').value = '/ave/Subcapitulos/SubcapitulosTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Subcapitulos/AddSubcapitulosServlet';
+ $('strLinkDeleteServlet').value = '/ave/Subcapitulos/DeleteSubcapitulosServlet'; 
+ $('strLinkDuplicarServlet').value = ''; 
+ $('strLinkEditServlet').value = '/ave/Subcapitulos/SubcapitulosElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Subcapitulos/GetSubcapitulosDetallePdfServlet';  
+ $('strLinkInformePdfServlet').value = '';  
+ $('strLinkListaPdfServlet').value = '/ave/Subcapitulos/SubcapitulosTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'subcapitulos.IDSUBCAPITULO='; 
+ $('strCampos').value = 'subcapitulos.REFERENCIA;subcapitulos.NOMBRE;subcapitulos.IDCAPITULO;FREE_EDITAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;NORMAL;AUTO;FREE_EDITAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Nombre;Capítulo;Editar;Borrar';
+ $('strCamposWidth').value = '20%;35%;35%;5%;5%';
+ $('strLinksUlContentServlet').value = ';;/ave/Capitulos/CapitulosUlContentServlet;;'; 
+ $('strMetodosController').value = 'ReferenciaSubcapitulosParsed;NombreSubcapitulosParsed;IdcapituloSubcapitulosParsed;EditSubcapitulos;DeleteSubcapitulos';
+ $('strLinksUpdateServlet').value = '/ave/Subcapitulos/UpdateReferenciaServlet;/ave/Subcapitulos/UpdateNombreServlet;/ave/Subcapitulos/UpdateIdcapituloServlet;editar;borrar'; 
+ $('strEsOrdenable').value="1;1;1;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;click;click';
+ $('strValidarColumnasGrid').value = ';requerido-es;requerido-es;;';  
+ $('strFormCampos').value = 'subcapitulos.IDSUBCAPITULO;subcapitulos.NOMBRE;subcapitulos.REFERENCIA;subcapitulos.IDCAPITULO'; 
+ $('strFormCamposOblig').value = '1;1;;1';  
+ $('strFormTipoEditor').value = 'HIDDEN;NORMAL;NORMAL;AUTO'; 
+ $('strFormCamposDec').value = 'IDSUBCAPITULO;Nombre;Referencia;Capítulo'; 
+ $('strFormCamposWidth').value = ';350px;350px;400px';  
+ $('strFormLinksUlContentServlet').value = ';;;/ave/Capitulos/CapitulosUlContentServlet'; 
+ $('strFormLinksElementServlet').value = ';;;/ave/Subcapitulos/SubcapitulosCapituloServlet';
+ $('strFormMetodosController').value = 'Idsubcapitulo;NombreSubcapitulosParsed;ReferenciaSubcapitulosParsed;IdcapituloSubcapitulosParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;;requerido-es';  
+ $('strFormCabeceraLinks').value = 'Unidades de Ejecución';
+ $('strFormCabeceraFunctions').value = 'verUnidadesEjecucion()';  
+ $('strCabeceraLinks').value = '';
+ $('strCabeceraFunctions').value = ''; 
+ $('strFiltroLinks').value = '';
+ $('strFiltroFunctions').value = ''; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";     
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ } 
+
+
+function verUnidadesEjecucion()
+{
+ $('iModoVisualizacion').value = '0';
+ $('viewedRows').value = '20';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Uejecuciones';  
+ $('strFunction').value = 'verUnidadesEjecucion()';
+ $('strTituloLista').value = 'Lista de Unidades de Ejecución';
+ $('strTituloForm').value = 'Unidad de Ejecución';  
+ $('tableContentServlet').value = '/ave/Uejecuciones/UejecucionesTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Uejecuciones/AddUejecucionesServlet';
+ $('strLinkDeleteServlet').value = '/ave/Uejecuciones/DeleteUejecucionesServlet'; 
+ $('strLinkDuplicarServlet').value = '';
+ $('strLinkEditServlet').value = '/ave/Uejecuciones/UejecucionesElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Uejecuciones/GetUejecucionesDetallePdfServlet';  
+ $('strLinkInformePdfServlet').value = '';  
+ $('strLinkListaPdfServlet').value = '/ave/Uejecuciones/UejecucionesTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'uejecuciones.IDUEJECUCION='; 
+ $('strCampos').value = 'uejecuciones.REFERENCIA;uejecuciones.IDOBRA;uejecuciones.IDSUBCAPITULO;uejecuciones.FECHACOMIENZO;uejecuciones.FECHAFIN;uejecuciones.IMPORTE;FREE_EDITAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;AUTO;AUTO;DATE;DATE;NORMAL;FREE_EDITAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Obra;SubCapítulo;Comienzo;Fin;Importe;Editar;Borrar';
+ $('strCamposWidth').value = '11%;24%;25%;10%;10%;10%;5%;5%';
+ $('strLinksUlContentServlet').value = ';/ave/Obras/ObrasUlContentServlet;/ave/Subcapitulos/SubcapitulosUlContentServlet;;;;'; 
+ $('strMetodosController').value = 'ReferenciaUejecucionesParsed;IdobraUejecucionesParsed;IdsubcapituloUejecucionesParsed;FechacomienzoUejecucionesParsed;FechafinUejecucionesParsed;ImporteUejecucionesParsed;EditUejecuciones;DeleteUejecuciones';
+ $('strLinksUpdateServlet').value = '/ave/Uejecuciones/UpdateReferenciaServlet;/ave/Uejecuciones/UpdateIdobraServlet;/ave/Uejecuciones/UpdateIdsubcapituloServlet;/ave/Uejecuciones/UpdateFechacomienzoServlet;/ave/Uejecuciones/UpdateFechafinServlet;/ave/Uejecuciones/UpdateImporteServlet;editar;borrar'; 
+ $('strEsOrdenable').value="1;1;1;1;1;1;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;click;click';
+ $('strValidarColumnasGrid').value = ';requerido-es;requerido-es;requerido-es validate-date-es;;;;';  
+ $('strFormCampos').value = 'uejecuciones.IDUEJECUCION;uejecuciones.IDOBRA;uejecuciones.IDSUBCAPITULO;uejecuciones.FECHACOMIENZO;uejecuciones.FECHAFIN;uejecuciones.REFERENCIA;uejecuciones.HORASESTIMADAS;uejecuciones.IMPORTE;uejecuciones.DESCRIPCION;uejecuciones.OBSERVACIONES'; 
+ $('strFormCamposOblig').value = '1;1;1;1;;;;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;AUTO;AUTO;DATE;DATE;NORMAL;NORMAL;NORMAL;AREA;AREA'; 
+ $('strFormCamposDec').value = 'IDUEJECUCION;Obra;SubCapítulo;Fecha Comienzo;Fecha Fin;Referencia;Horas Estimadas;Importe;Descripción;Observaciones'; 
+ $('strFormCamposWidth').value = ';400px;350px;350px;350px;350px;350px;350px;700px;700px';  
+ $('strFormLinksUlContentServlet').value = ';/ave/Obras/ObrasUlContentServlet;/ave/Subcapitulos/SubcapitulosUlContentServlet;;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';/ave/Uejecuciones/UejecucionesObraServlet;/ave/Uejecuciones/UejecucionesSubcapituloServlet;;;;;;;';
+ $('strFormMetodosController').value = 'Iduejecucion;IdobraUejecucionesParsed;IdsubcapituloUejecucionesParsed;FechacomienzoUejecucionesParsed;FechafinUejecucionesParsed;ReferenciaUejecucionesParsed;HorasestimadasUejecucionesParsed;ImporteUejecucionesParsed;DescripcionUejecucionesParsed;ObservacionesUejecucionesParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;requerido-es;requerido-es;;;;;;';  
+ $('strFormCabeceraLinks').value = 'Partes;Incidencias';
+ $('strFormCabeceraFunctions').value = 'verPartes();verIncidencias()';  
+ $('strCabeceraLinks').value = 'Obras;Subcapítulos';
+ $('strCabeceraFunctions').value = 'verObras();verSubcapitulos()';  
+ $('strFiltroLinks').value = 'Todas;En ejecución;Finalizadas';
+ $('strFiltroFunctions').value = '0;1;2'; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";    
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ } 
+ 
+function verOperarios()
+{
+ $('iModoVisualizacion').value = '0';
+ $('viewedRows').value = '20';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Operarios';   
+ $('strFunction').value = 'verOperarios()';
+ $('strTituloLista').value = 'Lista de Operarios';
+ $('strTituloForm').value = 'Operario';  
+ $('tableContentServlet').value = '/ave/Operarios/OperariosTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Operarios/AddOperariosServlet';
+ $('strLinkDeleteServlet').value = '/ave/Operarios/DeleteOperariosServlet'; 
+ $('strLinkDuplicarServlet').value = '';
+ $('strLinkEditServlet').value = '/ave/Operarios/OperariosElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Operarios/GetOperariosDetallePdfServlet'; 
+ $('strLinkInformePdfServlet').value = '';   
+ $('strLinkListaPdfServlet').value = '/ave/Operarios/OperariosTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'operarios.IDOPERARIO='; 
+ $('strCampos').value = 'operarios.REFERENCIA;operarios.NOMBRE;operarios.APELLIDOUNO;operarios.NUMEROSS;operarios.TELEFONO;operarios.MOVIL;operarios.EXTERNO;FREE_EDITAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;LECTURA;FREE_EDITAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Nombre;Primer Apellido;Nº S.S.;Teléfono;Móvil;Externo;Editar;Borrar';
+ $('strCamposWidth').value = '11%;15%;15%;14%;12%;12%;10%;5%;5%';
+ $('strLinksUlContentServlet').value = ';;;;;;;;;'; 
+ $('strMetodosController').value = 'ReferenciaOperariosParsed;NombreOperariosParsed;ApellidounoOperariosParsed;NumerossOperariosParsed;TelefonoOperariosParsed;MovilOperariosParsed;ExternoOperariosParsed2;EditOperarios;DeleteOperarios';
+ $('strLinksUpdateServlet').value = '/ave/Operarios/UpdateReferenciaServlet;/ave/Operarios/UpdateNombreServlet;/ave/Operarios/UpdateApellidounoServlet;/ave/Operarios/UpdateNumerossServlet;/ave/Operarios/UpdateTelefonoServlet;/ave/Operarios/UpdateMovilServlet;;editar;borrar'; 
+ $('strEsOrdenable').value="1;11;;1;1;1;1;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;;click;click';
+ $('strValidarColumnasGrid').value = ';requerido-es;requerido-es;;;;;;';  
+ $('strFormCampos').value = 'operarios.IDOPERARIO;operarios.IDCATEGORIA;operarios.IDLOCALIDAD;operarios.NOMBRE;operarios.APELLIDOUNO;operarios.APELLIDODOS;operarios.REFERENCIA;operarios.FECHAALTA;operarios.FECHABAJA;operarios.NIF;operarios.NUMEROSS;operarios.DIRECCION;operarios.CP;operarios.TELEFONO;operarios.MOVIL;operarios.EMAIL;operarios.COSTE;operarios.EXTERNO'; 
+ $('strFormCamposOblig').value = '1;1;1;1;1;1;;1;;;1;;;;;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;AUTO;AUTO;NORMAL;NORMAL;NORMAL;NORMAL;DATE;DATE;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;CHECK'; 
+ $('strFormCamposDec').value = 'IDOPERARIO;Categoría;Localidad;Nombre;Primer Apellido;Segundo Apellido;Referencia;Fecha Alta;Fecha Baja;Nif;Número S.S.;Dirección;Cp;Teléfono;Móvil;E-Mail;Coste;Externo'; 
+ $('strFormCamposWidth').value = ';400px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px';  
+ $('strFormLinksUlContentServlet').value = ';/ave/Categorias/CategoriasUlContentServlet;/ave/Localidades/LocalidadesUlContentServlet;;;;;;;;;;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';/ave/Operarios/OperariosCategoriaServlet;/ave/Operarios/OperariosLocalidadServlet;;;;;;;;;;;;;;;';
+ $('strFormMetodosController').value = 'Idoperario;IdcategoriaOperariosParsed;IdlocalidadOperariosParsed;NombreOperariosParsed;ApellidounoOperariosParsed;ApellidodosOperariosParsed;ReferenciaOperariosParsed;FechaaltaOperariosParsed;FechabajaOperariosParsed;NifOperariosParsed;NumerossOperariosParsed;DireccionOperariosParsed;CpOperariosParsed;TelefonoOperariosParsed;MovilOperariosParsed;EmailOperariosParsed;CosteOperariosParsed;ExternoOperariosParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;requerido-es;requerido-es;requerido-es;requerido-es;;requerido-es validate-date-es;;;requerido-es;;;;;;;';  
+ $('strFormCabeceraLinks').value = 'Partes;Incidencias';
+ $('strFormCabeceraFunctions').value = 'verPartes();verIncidencias()';  
+ $('strCabeceraLinks').value = '';
+ $('strCabeceraFunctions').value = '';  
+ $('strFiltroLinks').value = 'Todos;En Activo;Baja';
+ $('strFiltroFunctions').value = '0;1;2'; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";    
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ }  
+ 
+function verMaquinarias()
+{
+ $('iModoVisualizacion').value = '1';
+ $('viewedRows').value = '7';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Maquinarias';  
+ $('strFunction').value = 'verMaquinarias()';
+ $('strTituloLista').value = 'Lista de Maquinarias';
+ $('strTituloForm').value = 'Maquinaria';  
+ $('tableContentServlet').value = '/ave/Maquinarias/MaquinariasTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Maquinarias/AddMaquinariasServlet';
+ $('strLinkDeleteServlet').value = '/ave/Maquinarias/DeleteMaquinariasServlet'; 
+ $('strLinkDuplicarServlet').value = '';
+ $('strLinkEditServlet').value = '/ave/Maquinarias/MaquinariasElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Maquinarias/GetMaquinariasDetallePdfServlet';
+ $('strLinkInformePdfServlet').value = '';    
+ $('strLinkListaPdfServlet').value = '/ave/Maquinarias/MaquinariasTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'maquinarias.IDMAQUINARIA='; 
+ $('strCampos').value = 'maquinarias.REFERENCIA;maquinarias.MATRICULA;maquinarias.NOMBRE;maquinarias.MODELO;maquinarias.TIPO;maquinarias.ALQUILADO;FREE_EDITAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;FREE_EDITAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Matrícula;Nombre;Modelo;Tipo;Alquilado;Editar;Borrar';
+ $('strCamposWidth').value = '11%;14%;20%;20%;15%;10%;5%;5%';
+ $('strLinksUlContentServlet').value =';;;;;;;'; 
+ $('strMetodosController').value = 'ReferenciaMaquinariasParsed;MatriculaMaquinariasParsed;NombreMaquinariasParsed;ModeloMaquinariasParsed;TipoMaquinariasParsed;AlquiladoMaquinariasParsed2;EditMaquinarias;DeleteMaquinarias';
+ $('strLinksUpdateServlet').value = '/ave/Maquinarias/UpdateReferenciaServlet;/ave/Maquinarias/UpdateMatriculaServlet;/ave/Maquinarias/UpdateNombreServlet;/ave/Maquinarias/UpdateModeloServlet;/ave/Maquinarias/UpdateTipoServlet;;editar;borrar'; 
+ $('strEsOrdenable').value="1;1;1;1;1;1;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;;click;click';
+ $('strValidarColumnasGrid').value = ';;;;;;;';  
+ $('strFormCampos').value = 'maquinarias.IDMAQUINARIA;maquinarias.NOMBRE;maquinarias.MATRICULA;maquinarias.REFERENCIA;maquinarias.BASTIDOR;maquinarias.FECHAALTA;maquinarias.FECHABAJA;maquinarias.RESPONSABLE;maquinarias.COSTE;maquinarias.MODELO;maquinarias.MARCA;maquinarias.TIPO;maquinarias.ALQUILADO'; 
+ $('strFormCamposOblig').value = '1;1;;;1;1;;;;;;;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;NORMAL;NORMAL;NORMAL;NORMAL;DATE;DATE;NORMAL;NORMAL;NORMAL;NORMAL;NORMAL;CHECK'; 
+ $('strFormCamposDec').value = 'IDMAQUINARIA;Nombre;Matrícula;Referencia;Bastidor;Fecha Alta;Fecha Baja;Responsable;Coste;Modelo;Marca;Tipo;Alquilado'; 
+ $('strFormCamposWidth').value = ';350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px;350px';  
+ $('strFormLinksUlContentServlet').value = ';;;;;;;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';;;;;;;;;;;;';
+ $('strFormMetodosController').value = 'Idmaquinaria;NombreMaquinariasParsed;MatriculaMaquinariasParsed;ReferenciaMaquinariasParsed;BastidorMaquinariasParsed;FechaaltaMaquinariasParsed;FechabajaMaquinariasParsed;ResponsableMaquinariasParsed;CosteMaquinariasParsed;ModeloMaquinariasParsed;MarcaMaquinariasParsed;TipoMaquinariasParsed;AlquiladoMaquinariasParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;;;requerido-es;requerido-es validate-date-es;;;;;;;'; 
+ $('strFormCabeceraLinks').value = 'Partes;Incidencias';
+ $('strFormCabeceraFunctions').value = 'verPartes();verIncidencias()';  
+ $('strCabeceraLinks').value = '';
+ $('strCabeceraFunctions').value = '';  
+ $('strFiltroLinks').value = 'Todas;En Activo;Baja';
+ $('strFiltroFunctions').value = '0;1;2'; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";    
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ }  
+ 
+function verPartes()
+{
+ $('iModoVisualizacion').value = '0';
+ $('viewedRows').value = '20';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Partes'; 
+ $('strFunction').value = 'verPartes()';
+ $('strTituloLista').value = 'Lista de Partes';
+ $('strTituloForm').value = 'Parte';  
+ $('tableContentServlet').value = '/ave/Partes/PartesTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Partes/AddPartesServlet';
+ $('strLinkDeleteServlet').value = '/ave/Partes/DeletePartesServlet'; 
+ $('strLinkDuplicarServlet').value = '/ave/Partes/DuplicarPartesServlet';
+ $('strLinkEditServlet').value = '/ave/Partes/PartesElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Partes/GetPartesDetallePdfServlet'; 
+ $('strLinkInformePdfServlet').value = '';   
+ $('strLinkListaPdfServlet').value = '/ave/Partes/PartesTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'partes.IDPARTE='; 
+ $('strCampos').value = 'partes.REFERENCIA;partes.FECHA;partes.IDUEJECUCION;partes.IDOPERARIO;partes.IDMAQUINARIA;partes.HORAS;FREE_EDITAR;FREE_DUPLICAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;DATE;AUTO;AUTO;AUTO;NORMAL;FREE_EDITAR;FREE_DUPLICAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Fecha;Unidad de Ejecución;Operario;Maquinaria;Horas;Editar;Duplicar;Borrar';
+ $('strCamposWidth').value = '11%;9%;17%;17%;17%;7%;5%;5%;5%';
+ $('strLinksUlContentServlet').value = ';;/ave/Uejecuciones/UejecucionesUlContentServlet;/ave/Operarios/OperariosUlContentServlet;/ave/Maquinarias/MaquinariasUlContentServlet;;;;'; 
+ $('strMetodosController').value = 'ReferenciaPartesParsed;FechaPartesParsed;IduejecucionPartesParsed;IdoperarioPartesParsed;IdmaquinariaPartesParsed;HorasPartesParsed;EditPartes;DuplicarPartes;DeletePartes';
+ $('strLinksUpdateServlet').value = '/ave/Partes/UpdateReferenciaServlet;/ave/Partes/UpdateFechaServlet;/ave/Partes/UpdateIduejecucionServlet;/ave/Partes/UpdateIdoperarioServlet;/ave/Partes/UpdateIdmaquinariaServlet;/ave/Partes/UpdateHorasServlet;editar;duplicar;borrar';
+ $('strEsOrdenable').value="1;1;1;1;1;1;0;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;click;click;click';
+ $('strValidarColumnasGrid').value = ';requerido-es;requerido-es;;;requerido-es;;;';  
+ $('strFormCampos').value = 'partes.IDPARTE;partes.IDOPERARIO;partes.IDMAQUINARIA;partes.IDUEJECUCION;partes.REFERENCIA;partes.FECHA;partes.DESCRIPCION;partes.OBSERVACIONES;partes.HORAS;partes.IMPORTE'; 
+ $('strFormCamposOblig').value = '1;1;1;1;;1;1;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;AUTO;AUTO;AUTO;NORMAL;DATE;AREA;AREA;NORMAL;NORMAL'; 
+ $('strFormCamposDec').value = 'IDPARTE;Operario;Maquinaria;Unidad Ejecución;Referencia;Fecha;Descripción;Observaciones;Horas;Importe'; 
+ $('strFormCamposWidth').value = ';400px;350px;400px;300px;350px;700px;700px;350px;350px';  
+ $('strFormLinksUlContentServlet').value = ';/ave/Operarios/OperariosUlContentServlet;/ave/Maquinarias/MaquinariasUlContentServlet;/ave/Uejecuciones/UejecucionesUlContentServlet;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';/ave/Partes/PartesOperarioServlet;/ave/Partes/PartesMaquinariaServlet;/ave/Partes/PartesUejecucionServlet;;;;;;';
+ $('strFormMetodosController').value = 'Idparte;IdoperarioPartesParsed;IdmaquinariaPartesParsed;IduejecucionPartesParsed;ReferenciaPartesParsed;FechaPartesParsed;DescripcionPartesParsed;ObservacionesPartesParsed;HorasPartesParsed;ImportePartesParsed';  
+ $('strValidarCamposForm').value= ';;;requerido-es;;requerido-es;requerido-es;;requerido-es;'; 
+ $('strFormCabeceraLinks').value = '';
+ $('strFormCabeceraFunctions').value = '';  
+ $('strCabeceraLinks').value = 'Operarios;Maquinarias;Unidades de Ejecución';
+ $('strCabeceraFunctions').value = 'verOperarios();verMaquinarias();verUnidadesEjecucion()'; 
+ $('strFiltroLinks').value = '';
+ $('strFiltroFunctions').value = ''; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";     
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ } 
+ 
+function verTipoIncidencias()
+{
+ $('iModoVisualizacion').value = '1';
+ $('viewedRows').value = '7';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Tipoincidencias';  
+ $('strFunction').value = 'verTipoIncidencias()';
+ $('strTituloLista').value = 'Lista de Tipos de Incidencias';
+ $('strTituloForm').value = 'Tipos de Incidencia';  
+ $('tableContentServlet').value = '/ave/Tipoincidencias/TipoincidenciasTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Tipoincidencias/AddTipoincidenciasServlet';
+ $('strLinkDeleteServlet').value = '/ave/Tipoincidencias/DeleteTipoincidenciasServlet';
+ $('strLinkDuplicarServlet').value = ''; 
+ $('strLinkEditServlet').value = '/ave/Tipoincidencias/TipoincidenciasElementServlet'; 
+ $('strLinkDetallePdfServlet').value = ''; 
+ $('strLinkInformePdfServlet').value = '';   
+ $('strLinkListaPdfServlet').value = '';  
+ $('strLinkEditParam').value = 'tipoincidencias.IDTIPOINCIDENCIA='; 
+ $('strCampos').value = 'tipoincidencias.REFERENCIA;tipoincidencias.DESCRIPCION;FREE_EDITAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;AREA;FREE_EDITAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Descripción;Editar;Borrar';
+ $('strCamposWidth').value = '45%;45%;5%;5%';
+ $('strLinksUlContentServlet').value = ';'; 
+ $('strMetodosController').value = 'ReferenciaTipoincidenciasParsed;DescripcionTipoincidenciasParsed;EditTipoincidencias;DeleteTipoincidencias';
+ $('strLinksUpdateServlet').value = '/ave/Tipoincidencias/UpdateReferenciaServlet;/ave/Tipoincidencias/UpdateDescripcionServlet;editar;borrar'; 
+ $('strEsOrdenable').value="1;1;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;click;click';
+ $('strValidarColumnasGrid').value = 'requerido-es;requerido-es;;';  
+ $('strFormCampos').value = 'tipoincidencias.IDTIPOINCIDENCIA;tipoincidencias.DESCRIPCION;tipoincidencias.REFERENCIA'; 
+ $('strFormCamposOblig').value = '1;1;';  
+ $('strFormTipoEditor').value = 'HIDDEN;NORMAL;NORMAL'; 
+ $('strFormCamposDec').value = ';Descripción;Referencia'; 
+ $('strFormCamposWidth').value = ';350px;350px';  
+ $('strFormLinksUlContentServlet').value = ';;'; 
+ $('strFormLinksElementServlet').value = ';;';
+ $('strFormMetodosController').value = 'Idtipoincidencia;DescripcionTipoincidenciasParsed;ReferenciaTipoincidenciasParsed';  
+ $('strValidarCamposForm').value= ';requerido-es;';  
+ $('strFormCabeceraLinks').value = 'Incidencias';
+ $('strFormCabeceraFunctions').value = 'verIncidencias();';  
+ $('strCabeceraLinks').value = '';
+ $('strCabeceraFunctions').value = '';  
+ $('strFiltroLinks').value = '';
+ $('strFiltroFunctions').value = ''; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";    
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ } 
+ 
+ function verIncidencias()
+{
+ $('iModoVisualizacion').value = '0';
+ $('viewedRows').value = '20';
+ $('strTotalRegistros').value = '0';
+ $('strGap').value = '0';
+ $('strTableId').value = 'Incidencias';  
+ $('strFunction').value = 'verIncidencias()';
+ $('strTituloLista').value = 'Lista de Incidencias';
+ $('strTituloForm').value = 'Incidencia';  
+ $('tableContentServlet').value = '/ave/Incidencias/IncidenciasTableContentServlet'; 
+ $('strLinkAddServlet').value = '/ave/Incidencias/AddIncidenciasServlet';
+ $('strLinkDeleteServlet').value = '/ave/Incidencias/DeleteIncidenciasServlet';
+ $('strLinkDuplicarServlet').value = '/ave/Incidencias/DuplicarIncidenciasServlet'; 
+ $('strLinkEditServlet').value = '/ave/Incidencias/IncidenciasElementServlet'; 
+ $('strLinkDetallePdfServlet').value = '/ave/Incidencias/GetIncidenciasDetallePdfServlet'; 
+ $('strLinkInformePdfServlet').value = '';   
+ $('strLinkListaPdfServlet').value = '/ave/Incidencias/IncidenciasTableContentPdfServlet';  
+ $('strLinkEditParam').value = 'incidencias.IDINCIDENCIA='; 
+ $('strCampos').value = 'incidencias.REFERENCIA;incidencias.IDUEJECUCION;incidencias.IDOPERARIO;incidencias.IDMAQUINARIA;incidencias.IDTIPOINCIDENCIA;incidencias.FECHA;incidencias.HORAS;FREE_EDITAR;FREE_DUPLICAR;FREE_BORRAR'; 
+ $('strTipoEditor').value = 'NORMAL;AUTO;AUTO;AUTO;AUTO;DATE;NORMAL;FREE_EDITAR;FREE_DUPLICAR;FREE_BORRAR'; 
+ $('strCamposDec').value = 'Referencia;Unidad de Ejecución;Operario;Maquinaria;Tipo Incidencia;Fecha;Horas;Editar;Duplicar;Borrar';
+ $('strCamposWidth').value = '12%;13%;13%;13%;13%;10%;8%;5%;5%;5%';
+ $('strLinksUlContentServlet').value = ';/ave/Uejecuciones/UejecucionesUlContentServlet;/ave/Operarios/OperariosUlContentServlet;/ave/Maquinarias/MaquinariasUlContentServlet;/ave/Tipoincidencias/TipoincidenciasUlContentServlet;;;;;;'; 
+ $('strMetodosController').value = 'ReferenciaIncidenciasParsed;IduejecucionIncidenciasParsed;IdoperarioIncidenciasParsed;IdmaquinariaIncidenciasParsed;IdtipoincidenciaIncidenciasParsed;FechaIncidenciasParsed;HorasIncidenciasParsed;EditIncidencias;DuplicarIncidencias;DeleteIncidencias';
+ $('strLinksUpdateServlet').value = '/ave/Incidencias/UpdateReferenciaServlet;/ave/Incidencias/UpdateIduejecucionServlet;/ave/Incidencias/UpdateIdoperarioServlet;/ave/Incidencias/UpdateIdmaquinariaServlet;/ave/Incidencias/UpdateIdtipoincidenciaServlet;/ave/Incidencias/UpdateFechaServlet;/ave/Incidencias/UpdateHorasServlet;editar;duplicar;borrar'; 
+ $('strEsOrdenable').value="1;1;1;1;1;1;1;0;0;0";  
+ $('strEventos').value = 'dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;dblclick;click;click;click';
+ $('strValidarColumnasGrid').value = ';requerido-es;;;requerido-es;requerido-es;requerido-es;;;';  
+ $('strFormCampos').value = 'incidencias.IDINCIDENCIA;incidencias.IDOPERARIO;incidencias.IDMAQUINARIA;incidencias.IDUEJECUCION;incidencias.IDTIPOINCIDENCIA;incidencias.FECHA;incidencias.REFERENCIA;incidencias.DESCRIPCION;incidencias.OBSERVACIONES;incidencias.HORAS;incidencias.IMPORTE;incidencias.KILOMETROS;incidencias.TONELAJE'; 
+ $('strFormCamposOblig').value = '1;1;1;1;1;1;;1;;;;;';  
+ $('strFormTipoEditor').value = 'HIDDEN;AUTO;AUTO;AUTO;AUTO;DATE;NORMAL;AREA;AREA;NORMAL;NORMAL;NORMAL;NORMAL'; 
+ $('strFormCamposDec').value = 'IDINCIDENCIA;Operario;Maquinaria;Unidad Ejecución;Tipo Incidencia;Fecha;Referencia;Descripción;Observaciones;Horas;Importe;Kilometros;Tonelaje'; 
+ $('strFormCamposWidth').value = ';400px;350px;400px;350px;350px;350px;700px;700px;350px;350px;350px;350px';  
+ $('strFormLinksUlContentServlet').value = ';/ave/Operarios/OperariosUlContentServlet;/ave/Maquinarias/MaquinariasUlContentServlet;/ave/Uejecuciones/UejecucionesUlContentServlet;/ave/Tipoincidencias/TipoincidenciasUlContentServlet;;;;;;;;'; 
+ $('strFormLinksElementServlet').value = ';/ave/Incidencias/IncidenciasOperarioServlet;/ave/Incidencias/IncidenciasMaquinariaServlet;/ave/Incidencias/IncidenciasUejecucionServlet;/ave/Incidencias/IncidenciasTipoincidenciaServlet;;;;;;;;';
+ $('strFormMetodosController').value = 'Idincidencia;IdoperarioIncidenciasParsed;IdmaquinariaIncidenciasParsed;IduejecucionIncidenciasParsed;IdtipoincidenciaIncidenciasParsed;FechaIncidenciasParsed;ReferenciaIncidenciasParsed;DescripcionIncidenciasParsed;ObservacionesIncidenciasParsed;HorasIncidenciasParsed;ImporteIncidenciasParsed;KilometrosIncidenciasParsed;TonelajeIncidenciasParsed';  
+ $('strValidarCamposForm').value= ';;;requerido-es;requerido-es;requerido-es;;requerido-es;;requerido-es;;;';  
+ $('strFormCabeceraLinks').value = '';
+ $('strFormCabeceraFunctions').value = '';  
+ $('strCabeceraLinks').value = 'Operarios;Maquinarias;Unidades de Ejecución';
+ $('strCabeceraFunctions').value = 'verOperarios();verMaquinarias();verUnidadesEjecucion()';  
+ $('strFiltroLinks').value = '';
+ $('strFiltroFunctions').value = ''; 
+ $('strSeparadorFecha').value ="-";
+ $('strSeparadorHora').value =":";    
+ cargaQueryGrid();
+ cargaGrid();
+ crear();
+ } 
+
+ </script>
+
+</head>
+<body onLoad="ponerFiltro('');resetParam();resetQuery();limpiar();verAlarmas();">
+			  
+<div id="menu">
+  <ul>
+  <li id="nav-tipoincidencias" onclick="document.body.id='tipoincidencias'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verTipoIncidencias();">Tipos&nbsp;de&nbsp;Incidencia</a></li>
+  <li id="nav-subcapitulos" onclick="document.body.id='subcapitulos'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verSubcapitulos();">Subcap&iacute;tulos</a></li>
+  <li id="nav-operarios" onclick="document.body.id='operarios'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verOperarios();">Operarios</a></li>
+  <li id="nav-maquinarias" onclick="document.body.id='maquinarias'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verMaquinarias();">M&aacute;quinas</a></li>
+  <li id="nav-clientes" onclick="document.body.id='clientes'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verClientes();">Clientes</a></li>
+  <li id="nav-obras" onclick="document.body.id='obras'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verObras();">Obras</a></li>
+  <!-- <li id="nav-uejecuciones" onclick="document.body.id='uejecuciones'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verUnidadesEjecucion();">Unidades&nbsp;de&nbsp;Ejecuci&oacute;n</a></li>-->
+  <!-- <li id="nav-partes" onclick="document.body.id='partes'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verPartes();">Partes</a></li>-->
+  <!-- <li id="nav-incidencias" onclick="document.body.id='incidencias'"><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verIncidencias();">Incidencias</a></li>-->
+  </ul>
+ </div>
+ 
+
+ <div class="div_global">
+  <div id="div_query" name="div_query">
+  </div>  
+  <div id="div_header">
+  </div>
+  <div id="container">
+  </div>
+  <div id='placeholder' name='placeholder' class='placeholder'>
+  </div> 
+  <div id="div_nuevo" name="div_nuevo">
+  </div>    
+ </div>
+ 
+  <div id="pie">
+  <span class='inicio'>
+  <ul>
+  <li><a href="#" onclick="ponerFiltro('');resetParam();resetQuery();limpiar();verAlarmas();">Inicio</a></li>
+</ul> 
+</span>
+AVE
+ </div>
+<input type="hidden" id="strParam" value="">
+<input type="hidden" id="strQuery" value="">
+<input type="hidden" id="strFiltroParam" value="">
+
+<input type="hidden" id="iModoVisualizacion" value="">
+<input type="hidden" id="viewedRows" value="">
+<input type="hidden" id="strTotalRegistros" value="">
+<input type="hidden" id="strGap" value="">
+
+<input type="hidden" id="strTableId" value="">
+<input type="hidden" id="strFunction" value="">
+<input type="hidden" id="strTituloLista" value="">
+<input type="hidden" id="strTituloForm" value="">
+<input type="hidden" id="tableContentServlet" value="">
+<input type="hidden" id="strLinkAddServlet" value="">
+<input type="hidden" id="strLinkDeleteServlet" value="">
+<input type="hidden" id="strLinkDuplicarServlet" value="">
+<input type="hidden" id="strLinkEditServlet" value="">
+<input type="hidden" id="strLinkEditParam" value="">
+<input type="hidden" id="strLinkDetallePdfServlet" value="">
+<input type="hidden" id="strLinkInformePdfServlet" value="">
+<input type="hidden" id="strLinkListaPdfServlet" value="">
+
+<input type="hidden" id="strCampos" value="">
+<input type="hidden" id="strTipoEditor" value="">
+<input type="hidden" id="strCamposDec" value="">
+<input type="hidden" id="strCamposWidth" value="">
+<input type="hidden" id="strLinksUlContentServlet" value="">
+<input type="hidden" id="strMetodosController" value="">
+<input type="hidden" id="strLinksUpdateServlet" value="">
+<input type="hidden" id="strEsOrdenable" value="">
+<input type="hidden" id="strEventos" value="">
+<input type="hidden" id="strValidarColumnasGrid" value="">
+
+<input type="hidden" id="strFormCampos" value="">
+<input type="hidden" id="strFormCamposOblig" value="">
+<input type="hidden" id="strFormTipoEditor" value="">
+<input type="hidden" id="strFormCamposDec" value="">
+<input type="hidden" id="strFormCamposWidth" value="">
+<input type="hidden" id="strFormLinksUlContentServlet" value="">
+<input type="hidden" id="strFormLinksElementServlet" value="">
+<input type="hidden" id="strFormMetodosController" value="">
+<input type="hidden" id="strValidarCamposForm" value="">
+
+<input type="hidden" id="strCabeceraLinks" value="">
+<input type="hidden" id="strCabeceraFunctions" value="">
+
+<input type="hidden" id="strFormCabeceraLinks" value="">
+<input type="hidden" id="strFormCabeceraFunctions" value="">
+
+<input type="hidden" id="strFiltroLinks" value="">
+<input type="hidden" id="strFiltroFunctions" value="">
+<input type="hidden" id="strSeparadorFecha" value="">
+<input type="hidden" id="strSeparadorHora" value="">
+ 
+</body>
+</html>
